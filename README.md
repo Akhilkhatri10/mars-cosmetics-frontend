@@ -6,10 +6,10 @@ Built with **React (Vite)** and **Tailwind CSS**, consuming real backend APIs fo
 ---
 
 🔗 **Backend Repository:**  
-https://github.com/your-username/mars-cosmetics-backend
+https://github.com/Akhilkhatri10/mars-cosmetics-backend
 
 🌐 **Live Demo:**  
-https://your-vercel-app.vercel.app
+https://mars-cosmetics-frontend.vercel.app
 
 ---
 
@@ -69,7 +69,7 @@ These screenshots showcase both **User** and **Admin** experiences.
 Create a `.env` file in the frontend root:
 
 ```env
-VITE_API_URL=https://your-backend-url/api
+VITE_API_URL=https://mars-cosmetics-backend.onrender.com/api
 ```
 
 ⚠️ **Do not commit `.env` files.**  
@@ -80,7 +80,7 @@ Use `.env.example` for reference.
 
 ### Clone the repository
 ```bash
-git clone https://github.com/your-username/mars-cosmetics-frontend
+git clone https://github.com/Akhilkhatri10/mars-cosmetics-frontend
 ```
    
 ### Navigate to the project directory
@@ -158,7 +158,7 @@ http://localhost:5173
 **Akhilesh Khatri**  
 MERN Stack / Frontend Developer  
 
-- #### LinkedIn: [linkedin.com/in/your-linkedin](https://linkedin.com/in/your-linkedin)
+- #### LinkedIn: [linkedin.com/in/akhilesh-khatri-78696b209](https://www.linkedin.com/in/akhilesh-khatri-78696b209)
 
 ---
 ## ⭐️ Show Some Love
