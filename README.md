@@ -71,7 +71,7 @@ Create a `.env` file in the frontend root:
 ```env
 VITE_API_URL=https://your-backend-url/api
 ```
----
+
 ⚠️ **Do not commit `.env` files.**  
 Use `.env.example` for reference.
 --- 
