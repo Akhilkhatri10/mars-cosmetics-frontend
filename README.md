@@ -1,16 +1,172 @@
-# React + Vite
+# 🛍️ Mars Cosmetics – Frontend (MERN E-Commerce)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Frontend for **Mars Cosmetics**, a full-stack e-commerce platform with a user-facing storefront and a secure admin dashboard.  
+Built with **React (Vite)** and **Tailwind CSS**, consuming real backend APIs for products, orders, users, and sales analytics.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 **Backend Repository:**  
+https://github.com/your-username/mars-cosmetics-backend
 
-## React Compiler
+🌐 **Live Demo:**  
+https://your-vercel-app.vercel.app
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🖼️ Screenshots
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+These screenshots showcase both **User** and **Admin** experiences.
+
+### User Interface
+- Home page
+- Product listing
+- Product details
+- Cart & checkout
+
+### Admin Dashboard
+- Sales analytics (monthly)
+- Orders management
+- Products management
+
+![Home Page](./screenshots/home.png)
+![Products](./screenshots/products.png)
+![Admin Dashboard](./screenshots/admin-dashboard.png)
+
+---
+
+## 🚀 Features
+
+### User Features
+- Browse products
+- Search & filter
+- Add to cart
+- Checkout flow
+- User authentication
+- Responsive UI (mobile → desktop)
+
+### Admin Features
+- Sales analytics (monthly revenue charts)
+- Manage products
+- Manage orders
+- View customers
+- Admin-only protected routes
+
+---
+
+## 🧑‍💻 Tech Stack
+
+- React (Vite)
+- Tailwind CSS
+- React Router
+- Axios
+- Recharts
+- Lucide Icons
+
+---
+
+## ⚙️ Environment Variables
+
+Create a `.env` file in the frontend root:
+
+```env
+VITE_API_URL=https://your-backend-url/api
+```
+---
+⚠️ **Do not commit `.env` files.**  
+Use `.env.example` for reference.
+--- 
+
+## 🛠️ Local Development
+
+### Clone the repository
+```bash
+git clone https://github.com/your-username/mars-cosmetics-frontend
+```
+   
+### Navigate to the project directory
+```bash
+cd mars-cosmetics-frontend
+```
+
+### Install dependencies
+```bash
+npm install
+```
+
+### Start the development server
+```bash
+npm run dev
+```
+
+### Open your browser and go to  
+```text
+http://localhost:5173
+```
+---
+
+## 📊 Sales Analytics (Frontend Responsibility)
+
+- Charts are rendered using Recharts
+
+- Backend sends pre-aggregated monthly sales data
+
+- Frontend focuses only on visualization, not calculation
+
+---
+
+## 🌍 Deployment
+
+### Frontend (Vercel)
+
+- Connected to GitHub repository
+
+- Environment variables configured in Vercel dashboard
+
+- Auto-deploy on every push to main
+
+---
+
+## 🔒 Best Practices Followed
+
+- No secrets committed to GitHub
+
+- API base URL via environment variables
+
+- Clean component structure
+
+- Responsive layouts
+
+- Graceful loading & empty states
+
+---
+
+## 📌 Future Improvements
+
+- Sales comparison (MoM / YoY)
+
+- Dark mode
+
+- Admin role permissions
+
+- Better chart tooltips
+
+- Performance optimizations
+---
+
+## 👤 Author
+
+**Akhilesh Khatri**  
+MERN Stack / Frontend Developer  
+
+- #### LinkedIn: [linkedin.com/in/your-linkedin](https://linkedin.com/in/your-linkedin)
+
+---
+## ⭐️ Show Some Love
+#### If you find this project helpful, please consider giving it a ⭐️ on GitHub!
+#### Your support is greatly appreciated!
+#### Thank you! 😊
+
+---
+
+#### Thank you for checking out the Mars Cosmetics Frontend repository!
+#### Happy coding! 🚀
