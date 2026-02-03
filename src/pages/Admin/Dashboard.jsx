@@ -8,7 +8,8 @@ import {
   DollarSign,
   Package,
 } from 'lucide-react';
-import axios from "../../axiosConfig.js";
+// import axios from "../../axiosConfig.js";
+import API from "../../services/api";
 import {
   LineChart,
   Line,
@@ -67,10 +68,10 @@ export default function Dashboard() {
       try {
         const [overviewRes, salesRes, ordersRes, productsRes] =
           await Promise.all([
-            axios.get("/admin/overview"),
-            axios.get("/admin/sales"),
-            axios.get("/admin/orders"),
-            axios.get("/admin/products"),
+            API.get("/admin/overview"),
+            API.get("/admin/sales"),
+            API.get("/admin/orders"),
+            API.get("/admin/products"),
           ]);
 
         // console.log("Products API response:", productsRes.data);
@@ -125,7 +126,7 @@ export default function Dashboard() {
 
   const handleLogout = async () => {
     try {
-      await axios.post("/auth/logout"); // optional: clears cookie
+      await API.post("/auth/logout"); // optional: clears cookie
     } catch (err) {
       console.error("Logout failed:", err);
     } finally {

@@ -3,7 +3,8 @@ import Navbar from '@/components/Navbar'
 import React from 'react'
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from '@/axiosConfig';
+// import axios from '@/axiosConfig';
+import API from "../services/api";
 import Footer from '@/components/Footer';
 import StickyHeader from '@/components/StickyHeader';
 
@@ -16,7 +17,7 @@ const BlogDetail = () => {
     useEffect(() => {
         const fetchBlog = async () => {
             try {
-                const res = await axios.get(`/blogs/${id}`);
+                const res = await API.get(`/blogs/${id}`);
                 setBlog(res.data);
             } catch (err) {
                 setError(true);

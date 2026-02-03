@@ -1,10 +1,5 @@
 import API from "./api";
 
-// export const getOrders = async () => {
-//   const { data } = await API.get("/orders"); // admin only
-//   return data.orders; // 🔥 Extract our orders properly
-// };
-
 export const getOrders = async ({
   page = 1,
   filter = "ALL",

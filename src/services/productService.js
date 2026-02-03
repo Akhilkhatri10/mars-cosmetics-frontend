@@ -1,4 +1,3 @@
-
 import API from "./api";
 
 // Get all products

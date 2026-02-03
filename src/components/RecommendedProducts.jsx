@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import axios from "@/axiosConfig";
+// import axios from "@/axiosConfig";
+import API from "../services/api";
 import { useNavigate } from "react-router-dom";
 
 const RecommendedProducts = ({ productId }) => {
@@ -8,7 +9,7 @@ const RecommendedProducts = ({ productId }) => {
 
     useEffect(() => {
         const fetchRecommendations = async () => {
-            const res = await axios.get(
+            const res = await API.get(
                 `/products/recommended/${productId}`
             );
             setProducts(res.data);

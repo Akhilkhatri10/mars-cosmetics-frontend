@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "../redux/authSlice";
-import api from "../axiosConfig"; // renamed from axios
+// import api from "../axiosConfig"; // renamed from axios
+import API from "../services/api";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -25,7 +26,7 @@ const Register = () => {
     dispatch(setLoading(true));
 
     try {
-      const res = await api.post("/auth/register", formData);
+      const res = await API.post("/auth/register", formData);
 
       if (res.data.success) {
         const { token, user } = res.data;

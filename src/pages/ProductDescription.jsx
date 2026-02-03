@@ -11,7 +11,8 @@ import Footer from "../components/Footer";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCartLocal } from "../redux/cartSlice";
 import { toast } from "sonner";
-import axios from "../axiosConfig";
+// import axios from "../axiosConfig";
+import API from "../services/api";
 import StickyHeader from "@/components/StickyHeader";
 import CustomerReviews from "@/components/CustomerReviews";
 import RecommendedProducts from "@/components/RecommendedProducts";
@@ -94,7 +95,7 @@ const ProductDescription = () => {
         const fetchProduct = async () => {
             try {
                 setLoading(true);
-                const res = await axios.get(`/products/${id}`);
+                const res = await API.get(`/products/${id}`);
                 setProduct(res.data);
             } catch (error) {
                 toast.error("Product not found");
@@ -165,7 +166,7 @@ const ProductDescription = () => {
 
 
         try {
-            await axios.post("/cart/add",
+            await API.post("/cart/add",
                 {
                     // id: productId,
                     // product: {

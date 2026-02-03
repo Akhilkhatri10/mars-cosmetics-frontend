@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "../axiosConfig";
+// import axios from "../axiosConfig";
+import API from "../services/api";
 import { getCategories } from "../services/categoryService";
 
 const categoryTabs = ["Lips", "Eyes", "Face"];
@@ -42,7 +43,7 @@ const BestSellers = () => {
     const fetchProducts = async () => {
       try {
         setLoading(true);
-        const res = await axios.get(
+        const res = await API.get(
           `/products?category=${categoryId}`
         );
         setProducts(res.data || []);

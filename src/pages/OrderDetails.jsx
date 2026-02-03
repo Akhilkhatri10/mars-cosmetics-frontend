@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import Navbar from "../components/Navbar";
-import axios from "../axiosConfig";
+// import axios from "../axiosConfig";
+import API from "../services/api";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 import { toast } from "sonner";
@@ -39,7 +40,7 @@ const OrderDetails = () => {
         const fetchOrder = async () => {
             try {
                 setLoading(true);
-                const res = await axios.get(`/orders/${id}`);
+                const res = await API.get(`/orders/${id}`);
                 const fetchedOrder = res.data;
 
                 const loggedInUserId = user?._id || user?.id;
@@ -96,7 +97,7 @@ const OrderDetails = () => {
         if (!window.confirm("Mark this order as delivered?")) return;
 
         try {
-            await axios.put(`/orders/${order._id}/deliver`);
+            await API.put(`/orders/${order._id}/deliver`);
             toast.success("Order marked as delivered");
 
             setOrder((prev) => ({
@@ -113,7 +114,7 @@ const OrderDetails = () => {
         if (!window.confirm("Cancel this order? This action is irreversible.")) return;
 
         try {
-            await axios.delete(`/orders/${order._id}/cancel`);
+            await API.delete(`/orders/${order._id}/cancel`);
             toast.success("Order cancelled");
 
             navigate("/admin/orders");

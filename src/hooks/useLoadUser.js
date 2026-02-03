@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
-import api from "../axiosConfig"; 
+// import api from "../axiosConfig"; 
+import API from "../services/api";
 import { useDispatch, useSelector } from "react-redux";
 import { setUser, setLoading } from "../redux/authSlice";
 import { setCart, clearCartLocal } from "../redux/cartSlice";
@@ -18,7 +19,7 @@ export default function useLoadUser() {
             dispatch(setLoading(true));
 
             try {
-                const res = await api.get("/auth/me");
+                const res = await API.get("/auth/me");
                 const user = res?.data?.user;
                 console.log("🧑 Fetched user:", user);
 
@@ -41,7 +42,7 @@ export default function useLoadUser() {
 
                 // Load cart (GET /cart now, no userId in route)
                 try {
-                    const cartRes = await api.get("/cart");
+                    const cartRes = await API.get("/cart");
                     dispatch(setCart(cartRes.data));
                 } catch (err) {
                     console.error("❌ Failed to load cart:", err);

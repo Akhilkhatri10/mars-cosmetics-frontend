@@ -9,7 +9,8 @@ import image38 from '../assets/image38.webp'
 import image39 from '../assets/image39.webp'
 import image40 from '../assets/image40.webp'
 import BlogCard from './BlogCard'
-import axios from '../axiosConfig'
+// import axios from '../axiosConfig'
+import API from "../services/api";
 import StickyHeader from '@/components/StickyHeader'
 
 
@@ -19,7 +20,7 @@ const Blog = () => {
     useEffect(() => {
         const fetchBlogs = async () => {
             try {
-                const res = await axios.get("/blogs");
+                const res = await API.get("/blogs");
                 console.log("API response:", res.data);
                 setBlogs(res.data);
             } catch (error) {

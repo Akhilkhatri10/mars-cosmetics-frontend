@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setUser } from "../redux/authSlice";
 import { setCart } from "../redux/cartSlice";
-import api from "../axiosConfig";
+// import api from "../axiosConfig";
+import API from "../services/api";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 
@@ -22,7 +23,7 @@ const Login = () => {
     dispatch(setLoading(true));
 
     try {
-      const res = await api.post("/auth/login", formData);
+      const res = await API.post("/auth/login", formData);
       if (res.data.success) {
         const { token, user } = res.data;
 
@@ -34,7 +35,7 @@ const Login = () => {
         dispatch(setUser({ user, token }));
 
         // 🔥 FETCH CART IMMEDIATELY AFTER LOGIN
-        const cartRes = await api.get("/cart");
+        const cartRes = await API.get("/cart");
         dispatch(setCart(cartRes.data));
 
         toast.success(`Welcome back 👋 ${user.name}`);

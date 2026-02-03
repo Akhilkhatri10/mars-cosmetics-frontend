@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Navbar from "../components/Navbar";
-import axios from "../axiosConfig";
+// import axios from "../axiosConfig";
+import API from "../services/api";
 import { clearCartLocal } from "../redux/cartSlice";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
@@ -95,7 +96,7 @@ const Checkout = () => {
                 }));
 
 
-            const res = await axios.post("/orders", {
+            const res = await API.post("/orders", {
                 orderItems,
                 shippingAddress: shipping,
                 paymentMethod,
@@ -123,7 +124,7 @@ const Checkout = () => {
             await loadRazorpay(); // 👈 THIS is where async/await is used
 
             // Create Razorpay order (backend)
-            const razorpayRes = await axios.post("/payment/razorpay/create", {
+            const razorpayRes = await API.post("/payment/razorpay/create", {
                 orderId: order._id,
             });
 
@@ -135,7 +136,7 @@ const Checkout = () => {
 
                 handler: async function (response) {
                     // Verify payment
-                    await axios.post("/payment/razorpay/verify", {
+                    await API.post("/payment/razorpay/verify", {
                         ...response,
                         orderId: order._id,
                     });

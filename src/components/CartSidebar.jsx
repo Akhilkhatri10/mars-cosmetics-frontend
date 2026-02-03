@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { increaseQtyLocal, decreaseQtyLocal, removeItemLocal } from "../redux/cartSlice";
 import { clearCartLocal } from "../redux/cartSlice";
-import axios from "../axiosConfig";
+// import axios from "../axiosConfig";
+import API from "../services/api";
 import { toast } from "sonner";
 
 const CartSidebar = ({ isOpen, onClose }) => {
@@ -27,7 +28,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
     const handleClearCart = async () => {
         try {
             // 🔥 Clear cart in backend
-            await axios.delete("/cart/clear");
+            await API.delete("/cart/clear");
 
             // 🔥 Clear cart locally
             dispatch(clearCartLocal());
@@ -47,7 +48,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
 
         try {
             dispatch(removeItemLocal(productId));
-            await axios.delete(`/cart/remove/${productId}`);
+            await API.delete(`/cart/remove/${productId}`);
 
         } catch {
             toast.error("Failed to remove item");
@@ -60,7 +61,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
         try {
             dispatch(increaseQtyLocal(item.id));
 
-            await axios.put("/cart/update", {
+            await API.put("/cart/update", {
                 productId: item.id,
                 quantity: item.quantity + 1,
             });
@@ -77,7 +78,7 @@ const CartSidebar = ({ isOpen, onClose }) => {
         try {
             dispatch(decreaseQtyLocal(item.id));
 
-            await axios.put("/cart/update", {
+            await API.put("/cart/update", {
                 productId: item.id,
                 quantity: item.quantity - 1,
             });

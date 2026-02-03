@@ -3,7 +3,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { BiUserCircle } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { useDispatch, useSelector } from "react-redux";
-import axios from "../axiosConfig";
+// import axios from "../axiosConfig";
+import API from "../services/api";
 import { toast } from "sonner";
 import { logout } from "../redux/authSlice";
 import { clearCartLocal } from "../redux/cartSlice";
@@ -35,7 +36,7 @@ const Orders = () => {
     useEffect(() => {
         const fetchOrders = async () => {
             try {
-                const res = await axios.get("/orders/myorders");
+                const res = await API.get("/orders/myorders");
                 setOrders(res.data || []);
             } catch (err) {
                 setError("Failed to load orders");
@@ -70,7 +71,7 @@ const Orders = () => {
     // 🚪 Logout
     const handleLogout = async () => {
         try {
-            await axios.post("/auth/logout");
+            await API.post("/auth/logout");
             dispatch(clearCartLocal());
             dispatch(logout());
             // localStorage.removeItem("token");
@@ -87,7 +88,7 @@ const Orders = () => {
         if (!window.confirm("Are you sure you want to cancel this order?")) return;
 
         try {
-            await axios.delete(`/orders/${orderId}/cancel`);
+            await API.delete(`/orders/${orderId}/cancel`);
 
             setOrders((prev) => prev.filter((o) => o._id !== orderId));
             toast.success("Order cancelled successfully");

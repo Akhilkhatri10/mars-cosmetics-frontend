@@ -3,7 +3,8 @@ import React, { useState, useMemo, useEffect } from "react";
 import { useSearchParams, useParams, Link, useNavigate } from "react-router-dom";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import Footer from "../components/Footer";
-import axios from "../axiosConfig"; // axios instance with baseURL + token
+// import axios from "../axiosConfig"; // axios instance with baseURL + token
+import API from "../services/api";
 import StickyHeader from "@/components/StickyHeader";
 import { getCategories } from "../services/categoryService";
 
@@ -70,7 +71,7 @@ const ProductsPage = () => {
             ? `/products?category=${categoryId}`
             : "/products";
 
-        const res = await axios.get(url);
+        const res = await API.get(url);
         setBackendProducts(res.data || []);
       } catch (err) {
         console.error("Failed to load products:", err);

@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { toast } from "sonner";
-import api from "../axiosConfig";
+// import api from "../axiosConfig";
+import API from "../services/api";
 import image12 from '../assets/image12.webp'
+
 
 const MarsParty = () => {
 
@@ -18,7 +20,7 @@ const MarsParty = () => {
     }
 
     try {
-      await api.post("/subscribe", { email });
+      await API.post("/subscribe", { email });
       toast.success("🎉 You’re in! Check your inbox for offers");
       setEmail("");
     } catch (err) {
